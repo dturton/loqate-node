@@ -1,13 +1,13 @@
-export interface Options {
+export interface IOptions {
   key: string;
   countries?: string[];
 }
 
-export interface RequestOptions {
-  params: Params;
+export interface IRequestOptions {
+  params: IParams;
 }
 
-export interface Params {
+export interface IParams {
   Text?: string;
   Countries?: string[];
   IsMiddleware?: boolean;
