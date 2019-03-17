@@ -10,6 +10,7 @@
     "jest": "^24.5.0",
     "prettier": "^1.16.4",
     "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3333"
@@ -18,8 +19,12 @@
     "lib/**/*"
   ],
   "scripts": {
+    "dev": "ts-node ./src/init.ts --watch",
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
