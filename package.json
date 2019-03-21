@@ -1,8 +1,9 @@
 {
   "name": "loqate-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node wrapper for loqate api",
-  "main": "index.js",
+  "main": "dist/loqate.js",
+  "types": "dist/loqate.d.ts",
   "author": "David Turton <dturton@etrivo.com>",
   "license": "MIT",
   "devDependencies": {
