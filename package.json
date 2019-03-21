@@ -1,6 +1,6 @@
 {
   "name": "loqate-node",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Node wrapper for loqate api",
   "main": "dist/loqate.js",
   "types": "dist/loqate.d.ts",

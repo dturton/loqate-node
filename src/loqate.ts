@@ -9,7 +9,7 @@ const loqate = ({ key, countries = ['US'] }: IOptions) => {
     return client.get(`${endPoint}/v1.00/json3.ws`, requestOptions);
   };
   return {
-    async searchAddresses(query: string) {
+    async searchAddress(query: string) {
       try {
         const response = await localFetch('Find', {
           params: {
