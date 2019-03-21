@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { IOptions, IParams, IRequestOptions } from './interfaces';
+import { IOptions, IRequestOptions } from './interfaces';
 
-const loqate = ({ key, countries = [] }: IOptions) => {
+const loqate = ({ key, countries = ['US'] }: IOptions) => {
   const config = { key };
   const client = axios.create({ baseURL: 'https://api.addressy.com/Capture/Interactive/' });
   const localFetch = (endPoint: string, requestOptions: IRequestOptions) => {
@@ -10,15 +10,19 @@ const loqate = ({ key, countries = [] }: IOptions) => {
   };
   return {
     async searchAddresses(query: string) {
-      const response = await localFetch('Find', {
-        params: {
-          Countries: countries,
-          IsMiddleware: true,
-          Origin: 'US',
-          Text: query,
-        },
-      });
-      return response.data.Items.filter((item: { Type: string }) => item.Type === 'Address');
+      try {
+        const response = await localFetch('Find', {
+          params: {
+            Countries: countries,
+            IsMiddleware: true,
+            Origin: 'US',
+            Text: query,
+          },
+        });
+        return response.data.Items.filter((item: { Type: string }) => item.Type === 'Address');
+      } catch (error) {
+        return error;
+      }
     },
     async getAddress(addressId: number) {
       const response = await localFetch('Retrieve', {
